@@ -107,7 +107,7 @@ TEST(TDynamicVector, assign_operator_change_vector_size)
 	v1 = v;
 	v = v2;
 
-	EXPECT_EQ(3, v1.size());
+	EXPECT_EQ(4, v1.size());
 	EXPECT_EQ(2, v.size());
 }
 
@@ -155,10 +155,10 @@ TEST(TDynamicVector, can_add_scalar_to_vector)
 	v[0] = 0; v[1] = 1; v[2] = 2; v[3] = 3;
 
 	ASSERT_NO_THROW(v = v + 1);
-	EXPECT_EQ(3, v[0]);
-	EXPECT_EQ(4, v[1]);
-	EXPECT_EQ(5, v[2]);
-	EXPECT_EQ(6, v[3]);
+	EXPECT_EQ(1, v[0]);
+	EXPECT_EQ(2, v[1]);
+	EXPECT_EQ(3, v[2]);
+	EXPECT_EQ(4, v[3]);
 }
 
 TEST(TDynamicVector, can_subtract_scalar_from_vector)
@@ -169,7 +169,7 @@ TEST(TDynamicVector, can_subtract_scalar_from_vector)
 	ASSERT_NO_THROW(v = v - 1);
 	EXPECT_EQ(-1, v[0]);
 	EXPECT_EQ(0, v[1]);
-	EXPECT_EQ(-1, v[2]);
+	EXPECT_EQ(1, v[2]);
 	EXPECT_EQ(2, v[3]);
 }
 

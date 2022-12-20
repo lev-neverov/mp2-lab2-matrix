@@ -25,14 +25,14 @@ protected:
 public:
   TDynamicVector(size_t size = 1) : sz(size)
   {
-    if (sz == 0)
-      throw out_of_range("Vector size should be greater than zero");
-    pMem = new T[sz]();// {}; // У типа T д.б. констуктор по умолчанию
+      if (sz == 0)
+          throw out_of_range("Vector size should be greater than zero");
+      if (sz > MAX_VECTOR_SIZE)
+          throw out_of_range("Vector size should be less than max_size of vector");
+      pMem = new T[sz]();// {}; // У типа T д.б. констуктор по умолчанию
   }
   TDynamicVector(T* arr, size_t s) : sz(s)
   {
-      if ((sz <= 0) || (sz > MAX_VECTOR_SIZE))
-          throw out_of_range("Vector size should be greater than zero and less than max_size of vector");
       assert(arr != nullptr && "TDynamicVector ctor requires non-nullptr arg");
       pMem = new T[sz];
       std::copy(arr, arr + sz, pMem);
